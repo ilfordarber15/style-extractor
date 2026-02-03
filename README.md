@@ -4,7 +4,7 @@
 
 ## 依赖
 
-- Node.js（要求 **v20.19+**）
+- Node.js（需要能运行 `npx`）
 - Chrome（Stable）
 - Codex CLI（或任何支持 MCP 的客户端）
 - **必装：`chrome-devtools-mcp`（Chrome DevTools MCP）**：让 agent 能控制/检查真实 Chrome，抓网络请求、截图、运行脚本、录 trace 等
@@ -13,21 +13,6 @@
 
 ### 1) 安装 Chrome DevTools MCP（`chrome-devtools-mcp`）
 
-在 Codex CLI 中添加 MCP Server：
-
-```bash
-codex mcp add chrome-devtools -- npx chrome-devtools-mcp@latest
-```
-
-如果你使用 Windows 且启动 Chrome 失败，可在 `.codex/config.toml` 里为 `chrome-devtools` 增加 `env` 和更长的 `startup_timeout_ms`（不同机器路径可能略有差异），示例：
-
-```toml
-[mcp_servers.chrome-devtools]
-command = "cmd"
-args = ["/c", "npx", "-y", "chrome-devtools-mcp@latest"]
-env = { SystemRoot="C:\\Windows", PROGRAMFILES="C:\\Program Files" }
-startup_timeout_ms = 20_000
-```
 
 ### 2) 安装本 Skill
 
